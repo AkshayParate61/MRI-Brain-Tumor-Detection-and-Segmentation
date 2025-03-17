@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,46 +9,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MRI Classification & Segmentation</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            color: black;
+            border-radius: 10px;
+        }
+        .btn-link {
+            font-size: 1.2rem;
+        }
+        .border {
+            transition: transform 0.3s ease-in-out;
+        }
+        .border:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 
 <body>
 
   <nav class="navbar navbar-dark bg-dark">
-    <form class="form-inline" action="/" >
-      <button type="submit" value="Submit" class="btn btn-link" style="text-decoration: none; font-family: 'Roboto', sans-serif; color:aliceblue">HOME</button>
+    <form class="form-inline" action="/">
+      <button type="submit" value="Submit" class="btn btn-link">HOME</button>
     </form>
   </nav>
-  <nav class="navbar navbar-inner">
-        <span class="navbar-brand mb-0 h1 ">RESULT</span>
+  <nav class="navbar navbar-inner text-center">
+        <span class="navbar-brand mb-0 h1">RESULT</span>
   </nav>
 
   <div class="container-fluid">
-    <div class="card text-center  mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card text-center mt-5 shadow-lg p-4 mb-5 bg-white rounded">
       <div class="card-body">
-        <h5 class="card-header" style="color:black;">Prediction {{filename}}
-          <a class="btn-sm btn-secondary" href="{{url_for('home')}}" style="float:right; text-decoration:none;">Predict Again</a>
+        <h5 class="card-header text-dark">Prediction {{filename}}
+          <a class="btn-sm btn-secondary float-right" href="{{url_for('home')}}">Predict Again</a>
         </h5>
-        <div class="row justify-content-center" style="margin-top: 50px">
-          <div class="column">
-              <img src="../static/predicted/image1.png" class="border shadow-lg p-3 mb-5 bg-white rounded" alt="Originial Image" style="width:100%">
-            </div>
-  
-          <div class="column">
-            <img src="../static/predicted/image.png" alt="Predicted Image" class="border shadow-lg p-3 mb-5 bg-white rounded" style="width:100%">
+        <div class="row justify-content-center mt-4">
+          <div class="col-md-4">
+              <img src="../static/predicted/image1.png" class="border shadow-lg p-3 bg-white rounded" alt="Original Image" style="width:100%">
           </div>
-          
-          <div class="column">
-            <img src="../static/predicted/image2.png" alt="Mask" class="border shadow-lg p-3 mb-5 bg-white rounded" style="width:100%">
+          <div class="col-md-4">
+            <img src="../static/predicted/image.png" alt="Predicted Image" class="border shadow-lg p-3 bg-white rounded" style="width:100%">
+          </div>
+          <div class="col-md-4">
+            <img src="../static/predicted/image2.png" alt="Mask" class="border shadow-lg p-3 bg-white rounded" style="width:100%">
           </div>
         </div>
        </div>
       </div>
     </div>
   </div>
-        
-      
-       <script src="{{ url_for('static',filename='./script.js') }}"></script>
-       
-</body>
 
+       <script src="{{ url_for('static',filename='./script.js') }}"></script>
+
+</body>
 </html>
